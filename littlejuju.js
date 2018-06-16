@@ -67,7 +67,7 @@ setInterval(function(){
 
 clientRedis.hgetall('exchange', function(err, object) {
 
-    console.dir(parseInt(object.Sensor1)+","+parseInt(object.Sensor2)+","+parseInt(object.Effect));
+    // console.dir(parseInt(object.Sensor1)+","+parseInt(object.Sensor2)+","+parseInt(object.Effect));
     var toarduino = parseInt(object.Effect)+","+parseInt(object.Sensor1)+","+parseInt(object.Sensor2)
     //var toarduino = parseInt(object.Effect);
     port.write(toarduino +'\n', function(err) {
