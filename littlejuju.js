@@ -1,4 +1,11 @@
 var PORT = 33333;
+
+var express = require('express');
+var app = express();
+
+
+
+
 var HOST = 'ec2-18-219-243-183.us-east-2.compute.amazonaws.com';
 var redis = require('redis');
 var clientRedis = redis.createClient(19907, 'redis-19907.c11.us-east-1-2.ec2.cloud.redislabs.com', {no_ready_check: true});
@@ -31,6 +38,14 @@ clientRedis.auth('eyebeam', function (err) {
 
 clientRedis.on('connect', function() {
     console.log('Connected to Redis');
+});
+
+app.get('/', function (req, res) {
+  res.send('Littlejuju!'); });
+var serverw = app.listen(8000, function () {
+  var hostw = serverw.address().address;
+  var portw = serverw.address().port;
+  console.log('Example app listening at http://%s:%s', hostw, portw);
 });
 
 
